@@ -1,0 +1,105 @@
+<div class="wrapper">
+    <div class="header">
+        <a href="/">
+            <img src="assets/images/logo-quena.png">
+        </a>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="content">
+        
+        <div class="box-artist">
+            <div class="artist-photo">
+                <img src="{{imageArtistUrl}}">
+            </div>
+
+            <div class="artist-txt">
+                <img src="assets/images/logo-SECAVE.png" width="90">
+
+                <p>Conectémos mediante conciertos, dibujos, covers, entre otras obras de arte.</p>
+            </div>
+        </div>
+
+        <div class="box-artist">
+
+            <iframe src="https://open.spotify.com/embed/track/7MoZgM6AsQaZw14WnKopuy" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="content">
+        
+        <div class="productos">
+
+            <div class="producto-in" *ngFor="let item of products; index as i">
+                <div class="producto-img">
+                    <img src="{{item.image.url}}">
+                </div>
+
+                <div class="producto-txt">
+                    <p>Producto Uno</p>
+                    <span>S/. {{item.price}}</span>
+
+                    <a href="" class="btn btn-primary">Seleccionar</a>
+                </div>
+            </div>
+
+            <!-- <div class="producto-in">
+                <div class="producto-img">
+                    <img src="assets/images/img-producto.jpg">
+                </div>
+
+                <div class="producto-txt">
+                    <p>Producto Uno</p>
+                    <span>S/. 15.00</span>
+
+                    <a href="" class="btn btn-primary">Seleccionar</a>
+                </div>
+            </div> -->
+
+        </div>
+
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="content">
+        
+        <div class="box-form">
+            <p>Para completar tu compra, déjanos tus datos y te contactaremos.</p>
+
+            <div class="form-row">
+                <p>Nombre</p>
+                <input type="text" name="nombre" class="input-contact">
+            </div>
+
+            <div class="form-row">
+                <p>Teléfono</p>
+                <input type="text" name="telefono" class="input-contact">
+            </div>
+
+            <div class="form-row">
+                <p>Correo</p>
+                <input type="text" name="correo" class="input-contact">
+            </div>
+
+            <div class="form-row">
+                <input type="submit" name="send" class="btn btn-primary">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="footer bg-footer">
+    <div class="wrapper">
+        <div class="footer-in">
+            <p>© 2021 Hop Latam SAC</p>
+            <p class="hashtag">#KeepOnHopping</p>
+        </div>
+    </div>
+</div>

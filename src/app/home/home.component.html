@@ -1,0 +1,93 @@
+<div class="bg-w">
+	<div class="wrapper">
+		<div class="header">
+			<a href="/">
+				<img src="assets/images/logo-quena.png">
+			</a>
+		</div>
+	</div>
+
+	<div class="wrapper">
+		<div class="content">
+			
+			<div class="intro">
+				<p>¡Bienvenido a Quena!</p>
+				<span><img src="assets/images/icon-info.svg"><a href="#about">¿Qué es quena?</a></span>
+			</div>
+
+			<div class="box-select">
+				<p>Para empezar, selecciona un artista</p>
+				<select name="select" class="options" [(ngModel)]="artistSelected" #ctrl="ngModel">
+					<option *ngFor="let item of artists; index as i" value="{{item.id}}">{{item.name}}</option>
+				</select>
+
+				<div class="box-btn">
+					<input type="submit" name="" class="btn btn-primary" value="Empezar" (click)="goArtist()">
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="wrapper">
+	<div class="content">
+
+		<div class="box-content" id="about">
+			<div class="box-title">
+				<h2>¿Qué es Quena?</h2>
+			</div>
+
+			<div class="box-text">
+				<p>Quena es un punto de encuentro entre artistas locales y fans. Aquí podrás comprar piezas de arte y música que no están en otro lado, ¡además de interactuar con tus artistas favoritos!</p>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="wrapper">
+	<div class="content">
+		
+		<div class="box-content work">
+			<div class="box-title">
+				<h2>¿Cómo funciona?</h2>
+			</div>
+
+			<div class="box-work-in">
+				<div class="box-number">
+					<p>1</p>
+				</div>
+
+				<p>Selecciona un/a artista a quien quisieras comprarle (si no está en las opciones, sugiérenos artistas que quieras!)</p>
+			</div>
+
+			<div class="box-work-in">
+				<div class="box-number">
+					<p>2</p>
+				</div>
+
+				<p>Escoge el producto o servicio que quisieras comprarle a tu artista.</p>
+			</div>
+
+			<div class="box-work-in">
+				<div class="box-number">
+					<p>3</p>
+				</div>
+
+				<p>Déjanos tus datos para contactarte por WhatsApp.</p>
+			</div>
+
+			<div class="box-work-in">
+				<div class="box-number">
+					<p>4</p>
+				</div>
+
+				<p>Coordinaremos contigo y tu artista para la entrega de tu producto/servicio. Puedes hacer el pago por Yape o Plin, y ¡listo!</p>
+			</div>
+
+		</div>
+
+	</div>
+</div>
