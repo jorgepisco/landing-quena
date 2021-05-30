@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ArtistComponent } from './artist/artist.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ArtistComponent
+    ArtistComponent,
+    ThankyouComponent
   ],
   imports: [
     BrowserModule,

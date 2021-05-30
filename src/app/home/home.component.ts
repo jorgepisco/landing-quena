@@ -38,39 +38,6 @@ export class HomeComponent implements OnInit {
       console.log('new response::: ', this.artists);
     });
 
-    // let result: any;
-    // const apigClient = apigClientFactory.newClient({
-    //   invokeUrl: 'https://8wyy91tan5.execute-api.us-east-2.amazonaws.com',
-    //   accessKey: 'AKIAY2QDANANYJ5S6LHH',
-    //   secretKey: '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',
-    //   region: 'us-east-2'
-    // });
-
-
-    //   const pathParams = {};
-    //   const pathTemplate = '/test/api-quena/artist/getAll';
-    //   const method = 'POST';
-    //   const additionalParams = {
-    //       headers: {},
-    //       queryParams: {},
-    //   };
-    //   const request = {
-    //     "request": {
-    //       "payload": {
-    //       }
-    //     }
-    //   };
-    //   try {
-    //     console.log('request: ', request);
-    //       result = await apigClient.invokeApi(pathParams, pathTemplate, method, additionalParams, request);
-    //       if(result.data.response.status){
-    //         this.artists = result.data.response.payload;
-    //       }
-    //       console.log('Artists: ', JSON.stringify(this.artists));
-    //   } catch (error) {
-    //       console.log('ocurrió un error: ', error);
-    //   }
-
 
   }
 

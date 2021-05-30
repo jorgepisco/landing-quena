@@ -43,22 +43,9 @@
                     <p>Producto Uno</p>
                     <span>S/. {{item.price}}</span>
 
-                    <a href="" class="btn btn-primary">Seleccionar</a>
+                    <a class="btn btn-primary" (click)="selectProduct(item)">Seleccionar</a>
                 </div>
             </div>
-
-            <!-- <div class="producto-in">
-                <div class="producto-img">
-                    <img src="assets/images/img-producto.jpg">
-                </div>
-
-                <div class="producto-txt">
-                    <p>Producto Uno</p>
-                    <span>S/. 15.00</span>
-
-                    <a href="" class="btn btn-primary">Seleccionar</a>
-                </div>
-            </div> -->
 
         </div>
 
@@ -70,25 +57,27 @@
         
         <div class="box-form">
             <p>Para completar tu compra, déjanos tus datos y te contactaremos.</p>
+            <form class="" [formGroup]="frmDelivery" (ngSubmit)="save()">
+                <div class="form-row">
+                    <p>Nombre</p>
+                    <input type="text" name="nombre" class="input-contact" id="name" formControlName="name">
+                </div>
+    
+                <div class="form-row">
+                    <p>Teléfono</p>
+                    <input type="text" name="telefono" class="input-contact" id="phone" formControlName="phone">
+                </div>
+    
+                <div class="form-row">
+                    <p>Correo</p>
+                    <input type="text" name="correo" class="input-contact" id="email" formControlName="email">
+                </div>
+    
+                <div class="form-row">
+                    <input type="submit" name="send" class="btn btn-primary" [disabled]="!frmDelivery.valid">
+                </div>
+            </form>
 
-            <div class="form-row">
-                <p>Nombre</p>
-                <input type="text" name="nombre" class="input-contact">
-            </div>
-
-            <div class="form-row">
-                <p>Teléfono</p>
-                <input type="text" name="telefono" class="input-contact">
-            </div>
-
-            <div class="form-row">
-                <p>Correo</p>
-                <input type="text" name="correo" class="input-contact">
-            </div>
-
-            <div class="form-row">
-                <input type="submit" name="send" class="btn btn-primary">
-            </div>
         </div>
 
     </div>

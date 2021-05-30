@@ -10,7 +10,8 @@ export const environment = {
   region: 'us-east-2',
   getAllArtists: '/test/api-quena/artist/getAll',
   getProductsByArtistId: '/test/api-quena/product/getByArtistId',
-  getArtist: '/test/api-quena/artist/get'
+  getArtist: '/test/api-quena/artist/get',
+  saveDelivery: '/test/api-quena/delivery/create'
 };
 
 /*
