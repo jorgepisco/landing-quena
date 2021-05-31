@@ -101,41 +101,41 @@ export class ArtistComponent implements OnInit {
       }
     };
     console.log('request delivery: ', JSON.stringify(request));
-    // let pathUrl = environment.saveDelivery;
-    // await this.quenaService.invokePostService(apigClientFactory, request, pathUrl).then((res) =>{
-    //   if(res.data.response.status){
-    //     let data = res.data.response.payload;
-    //     this.artist = data;
-    //     this.imageArtistUrl = data.imageLogo.url;
-    //     console.log('imageArtistUrl: ', this.imageArtistUrl);
-    //     console.log('artist ===> ', this.artist);
-    //   }
-    // });
-
-    // this.router.navigate([`/thankyou`]);
+    let pathUrl = environment.saveDelivery;
+    await this.quenaService.invokePostService(apigClientFactory, request, pathUrl).then((res) =>{
+      console.log('response save delivery: ', res)
+      if(res.data.response.status){
+        this.router.navigate(['/thankyou']);
+      }
+    });
   }
 
-  public async selectProduct(item: any) {
+  public async selectProduct(item: any, index: any) {
     console.log('item ===> ', item);
+    let element = document.getElementById("product"+index);
+    console.log('element::: ', element);
     let form = this.frmDelivery.value;
     let products = [];
     products = form.products;
-    console.log('productos de la lista: ', products);
+    let exist = false;
     if(products.length > 0){
       const updated = products.map(async(product, index) => {
-        if(JSON.stringify(product) === JSON.stringify(item) ){
-              console.log('ingresó a eliminar: ', item.id);
-              products.splice(index, 1);
-            }else{
-              products.push(item);    
-              console.log('agregando un producto mas: ', JSON.stringify(products));
-            }
+        if(item.id == product.id){
+          exist = true;
+          products.splice(index, 1);
+          element.innerHTML = "Seleccionar";
+        }
       });
       await Promise.all(updated);
+      if(!exist){
+        products.push(item);    
+        element.innerHTML = "Eliminar";
+      }
     }else{
       products.push(item);
-      console.log('primer producto agregando: ', JSON.stringify(products));
+      element.innerHTML = "Eliminar";
     }
+    this.frmDelivery.controls.products.setValue([]);
     this.frmDelivery.controls.products.setValue(products);
   }
 
