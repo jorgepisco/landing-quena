@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { GoogleTagManagerService } from 'angular-google-tag-manager';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { environment } from 'src/environments/environment';
 const apigClientFactory = require('aws-api-gateway-client').default;
 
@@ -30,7 +31,8 @@ export class ArtistComponent implements OnInit {
     private quenaService: QuenaService,
     private router: Router,
     private _sanitizer: DomSanitizer,
-    private gtmService: GoogleTagManagerService) { 
+    private gtmService: GoogleTagManagerService,
+    private $gaService: GoogleAnalyticsService) { 
 
       // this.spotify=  this._sanitizer.bypassSecurityTrustResourceUrl("https://open.spotify.com/embed/track/7MoZgM6AsQaZw14WnKopuy");
     }
@@ -43,16 +45,18 @@ export class ArtistComponent implements OnInit {
     this.getProductsByArtistId(this.artistId);
     this.initForm();
 
-    this.router.events.forEach(item => {
-      if (item instanceof NavigationEnd) {
-        const gtmTag = {
-          event: 'artist',
-          pageName: item.url
-        };
+    // this.router.events.forEach(item => {
+    //   if (item instanceof NavigationEnd) {
+    //     const gtmTag = {
+    //       event: 'artist',
+    //       pageName: item.url
+    //     };
 
-        this.gtmService.pushTag(gtmTag);
-      }
-    });
+    //     this.gtmService.pushTag(gtmTag);
+    //   }
+    // });
+
+    this.$gaService.event('url', 'Anonimo', 'Gala Brie');
   }
 
   initForm() {
