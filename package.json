@@ -19,12 +19,13 @@
     "@angular/platform-browser": "~10.0.0",
     "@angular/platform-browser-dynamic": "~10.0.0",
     "@angular/router": "~10.0.0",
-    "rxjs": "~6.5.5",
-    "tslib": "^2.0.0",
-    "zone.js": "~0.10.3",
+    "angular-google-tag-manager": "^1.4.1",
+    "aws-api-gateway-client": "^0.3.7",
     "crypto-js": "^4.0.0",
     "require": "^2.4.20",
-    "aws-api-gateway-client": "^0.3.7"
+    "rxjs": "~6.5.5",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1000.0",

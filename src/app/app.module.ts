@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { ArtistComponent } from './artist/artist.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ThankyouComponent } from './thankyou/thankyou.component';
+import { GoogleTagManagerModule } from 'angular-google-tag-manager';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,10 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GoogleTagManagerModule.forRoot({
+      id: 'GTM-MLXPVKL'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
