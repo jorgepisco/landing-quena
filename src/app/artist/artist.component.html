@@ -15,15 +15,16 @@
             </div>
 
             <div class="artist-txt">
-                <img src="assets/images/logo-SECAVE.png" width="90">
+                <!-- <img src="assets/images/logo-SECAVE.png" width="90"> -->
+                <span class="artist-name"><strong>{{name | uppercase}}</strong></span>
 
-                <p>Conectémos mediante conciertos, dibujos, covers, entre otras obras de arte.</p>
+                <p>{{blurb}}</p>
             </div>
         </div>
 
         <div class="box-artist">
-
-            <iframe src="https://open.spotify.com/embed/track/7MoZgM6AsQaZw14WnKopuy" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <!-- <iframe src="https://open.spotify.com/embed/track/7MoZgM6AsQaZw14WnKopuy" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
+            <iframe [src]="spotify" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>
 
     </div>
@@ -40,7 +41,7 @@
                 </div>
 
                 <div class="producto-txt">
-                    <p>Producto Uno</p>
+                    <p>{{item.productName}}</p>
                     <span>S/. {{item.price}}</span>
 
                     <a class="btn btn-primary" (click)="selectProduct(item, i)" id="product{{i}}">Seleccionar</a>

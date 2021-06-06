@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 const apigClientFactory = require('aws-api-gateway-client').default;
@@ -15,15 +16,22 @@ import { QuenaService } from '../shared';
 export class ArtistComponent implements OnInit {
 
   private artistId: any;
+  public spotify: any;
   public products: any[] = [];
   public artist: any[] = [];
   public imageArtistUrl: '';
+  public blurb:any;
+  public name:any;
   frmDelivery: FormGroup;
 
   constructor(private route: ActivatedRoute,
     private fb: FormBuilder,
     private quenaService: QuenaService,
-    private router: Router) { }
+    private router: Router,
+    private _sanitizer: DomSanitizer) { 
+
+      // this.spotify=  this._sanitizer.bypassSecurityTrustResourceUrl("https://open.spotify.com/embed/track/7MoZgM6AsQaZw14WnKopuy");
+    }
 
   ngOnInit(): void {
 
@@ -80,7 +88,9 @@ export class ArtistComponent implements OnInit {
           let data = res.data.response.payload;
           this.artist = data;
           this.imageArtistUrl = data.imageLogo.url;
-          console.log('imageArtistUrl: ', this.imageArtistUrl);
+          this.spotify = this._sanitizer.bypassSecurityTrustResourceUrl(data.spotify);
+          this.name  = data.name;
+          this.blurb  = data.blurb;
           console.log('artist ===> ', this.artist);
         }
       });
