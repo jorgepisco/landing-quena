@@ -24,7 +24,7 @@
 
         <div class="box-artist">
             <!-- <iframe src="https://open.spotify.com/embed/track/7MoZgM6AsQaZw14WnKopuy" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
-            <iframe [src]="spotify" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe [src]="spotify" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media" ></iframe>
         </div>
 
     </div>
@@ -61,21 +61,21 @@
             <form class="" [formGroup]="frmDelivery" (ngSubmit)="save()">
                 <div class="form-row">
                     <p>Nombre</p>
-                    <input type="text" name="nombre" class="input-contact" id="name" formControlName="name">
+                    <input gaEvent="NombreLlenado" gaCategory="Artista" type="text" name="nombre" class="input-contact" id="name" formControlName="name">
                 </div>
     
                 <div class="form-row">
                     <p>Teléfono</p>
-                    <input type="text" name="telefono" class="input-contact" id="phone" formControlName="phone">
+                    <input gaEvent="TelefonoLlenado" gaCategory="Artista" type="text" name="telefono" class="input-contact" id="phone" formControlName="phone">
                 </div>
     
                 <div class="form-row">
                     <p>Correo</p>
-                    <input type="text" name="correo" class="input-contact" id="email" formControlName="email">
+                    <input gaEvent="CorreoLlenado" gaCategory="Artista" type="text" name="correo" class="input-contact" id="email" formControlName="email">
                 </div>
     
                 <div class="form-row">
-                    <input type="submit" name="send" class="btn btn-primary" [disabled]="!frmDelivery.valid">
+                    <input gaEvent="EnviarInformacion" gaCategory="Artista" type="submit" name="send" class="btn btn-primary" [disabled]="!frmDelivery.valid">
                 </div>
             </form>
 

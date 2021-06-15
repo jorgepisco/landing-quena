@@ -12,13 +12,14 @@
 			
 			<div class="intro">
 				<p>¡Bienvenido a Quena!</p>
-				<span><img src="assets/images/icon-info.svg"><a href="#about">¿Qué es quena?</a></span>
+				<span><img src="assets/images/icon-info.svg"><a href="#about" gaEvent="ClicInfoQuena" gaCategory="inicio" gaBind="click" >¿Qué es quena?</a></span>
 			</div>
 
 			<div class="box-select">
 				<p>Para empezar, selecciona un artista</p>
-				<select name="select" class="options" [(ngModel)]="artistSelected" #ctrl="ngModel">
-					<option *ngFor="let item of artists; index as i" value="{{item.id}}">{{item.name}}</option>
+				<select name="select" class="options" [(ngModel)]="artistSelected" #ctrl="ngModel" gaEvent="DropdownArtistasInicio" gaCategory="inicio" gaBind="click">
+					<!--Averiguar por qué no funciona este tag "option"*/-->
+					<option *ngFor="let item of artists; index as i" value="{{item.id}}" gaEvent="SeleccionInicio" gaCategory="inicio" gaBind="box-select">{{item.name}}</option>
 				</select>
 
 				<div class="box-btn">

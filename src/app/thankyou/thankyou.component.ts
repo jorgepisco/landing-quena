@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'app-thankyou',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThankyouComponent implements OnInit {
 
-  constructor() { }
+  constructor(private $gaService: GoogleAnalyticsService) { }
 
   ngOnInit(): void {
+    this.$gaService.event('CargaExitosaThankyou','ThankYou');
   }
 
 }

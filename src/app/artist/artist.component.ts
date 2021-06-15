@@ -44,19 +44,7 @@ export class ArtistComponent implements OnInit {
     this.getArtist(this.artistId);
     this.getProductsByArtistId(this.artistId);
     this.initForm();
-
-    // this.router.events.forEach(item => {
-    //   if (item instanceof NavigationEnd) {
-    //     const gtmTag = {
-    //       event: 'artist',
-    //       pageName: item.url
-    //     };
-
-    //     this.gtmService.pushTag(gtmTag);
-    //   }
-    // });
-
-    this.$gaService.event('url', 'Anonimo', 'Gala Brie');
+    this.$gaService.event('CargaExitosaArtista','Artista');
   }
 
   initForm() {
@@ -109,6 +97,7 @@ export class ArtistComponent implements OnInit {
           this.name  = data.name;
           this.blurb  = data.blurb;
           console.log('artist ===> ', this.artist);
+          this.$gaService.event('CargaExitosa'+data.name, data.name);
         }
       });
 
@@ -132,7 +121,12 @@ export class ArtistComponent implements OnInit {
     await this.quenaService.invokePostService(apigClientFactory, request, pathUrl).then((res) =>{
       console.log('response save delivery: ', res)
       if(res.data.response.status){
+        this.$gaService.event('ComprarProducto','Artista','ComprarProducto');
+        this.$gaService.event('ComprarProducto'+this.name,this.name,'ComprarProducto');
         this.router.navigate(['/thankyou']);
+      }else{
+        this.$gaService.event('ErrorCompraProducto','Artista','ComprarProducto');
+        this.$gaService.event('ErrorCompraProducto'+this.name,this.name,'ComprarProducto');
       }
     });
   }
@@ -155,11 +149,13 @@ export class ArtistComponent implements OnInit {
       });
       await Promise.all(updated);
       if(!exist){
-        products.push(item);    
+        products.push(item);
+        this.$gaService.event('SeleccionProducto'+item.productName+this.name, this.name);    
         element.innerHTML = "Eliminar";
       }
     }else{
       products.push(item);
+      this.$gaService.event('SeleccionProducto'+item.productName+this.name, this.name); 
       element.innerHTML = "Eliminar";
     }
     this.frmDelivery.controls.products.setValue([]);
